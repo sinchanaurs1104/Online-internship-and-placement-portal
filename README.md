@@ -29,10 +29,13 @@ A web platform that helps students prepare for placements and internships in one
 | **Practice Question Bank** | Categorized aptitude, technical MCQs, and coding problems with scored results |
 | **Timed Mock Tests** | Real-test simulation with auto-submit at the time limit and detailed answer analysis |
 | **Personal Analytics** | Performance trends and strengths/weaknesses based on test and practice history |
+| **Security** | Role-based access, secure sessions, and validated input |
 
 ---
 
 ## Requirements Overview
+
+Full details, priorities, and acceptance criteria are in the SRS (`docs/`).
 
 ### Functional Requirements
 
@@ -51,6 +54,9 @@ A web platform that helps students prepare for placements and internships in one
 | NFR-001 | Respond to user actions within 2 seconds under normal load (95th percentile) | High |
 | NFR-002 | Hashed passwords, encrypted storage, and HTTPS for all data in transit | High |
 | NFR-003 | Works on Chrome, Firefox, and Edge across desktop, tablet, and mobile | Medium |
+| NFR-004 | Role-based access control: students reach only their own data, only admins reach admin functions | High |
+| NFR-005 | Secure sessions that expire after 30 minutes of inactivity and on logout | High |
+| NFR-006 | Server-side validation and sanitization of all user input | High |
 
 ---
 
@@ -147,6 +153,9 @@ npm run dev
 | NFR-001 | 95% of requests complete within 2 seconds |
 | NFR-002 | Passwords stored hashed; all traffic over HTTPS |
 | NFR-003 | Core features usable on Chrome, Firefox, Edge across desktop, tablet, and mobile |
+| NFR-004 | A student opening an admin page or another student's data is denied access |
+| NFR-005 | Protected pages redirect to Login after logout or timeout |
+| NFR-006 | Malicious input is rejected or neutralized |
 
 Run the test suite:
 
